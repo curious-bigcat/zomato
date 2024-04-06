@@ -57,7 +57,7 @@ def lambda_handler(event, context):
 def get_embedding(synopsis):
     input_data = {"text_inputs": synopsis}
     response = sagemaker_runtime_client.invoke_endpoint(
-        EndpointName="jumpstart-dft-hf-textembedding-all-minilm-l6-snow",
+        EndpointName="SAGEMAKER_ENDPOINT_NAME",
         Body=json.dumps(input_data),
         ContentType="application/json"
     )
@@ -67,7 +67,7 @@ def get_embedding(synopsis):
 
 def perform_vector_search(embedding):
     # Connect to MongoDB Atlas
-    client = pymongo.MongoClient("mongodb+srv://bharaths:Blippi123@restaurant.psa7j2k.mongodb.net/?retryWrites=true&w=majority&appName=restaurant")
+    client = pymongo.MongoClient("MONGODB_URL")
 
     # Define pipeline for vector search
     pipeline = [
