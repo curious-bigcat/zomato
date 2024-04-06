@@ -87,7 +87,7 @@ def main():
         return
 
     # Connect to MongoDB Atlas
-    collection = connect_to_mongodb("mongodb+srv://bharaths:Blippi123@restaurant.psa7j2k.mongodb.net/?retryWrites=true&w=majority&appName=restaurant")
+    collection = connect_to_mongodb("MONGODB_URL")
     if collection is None:
         return
     
@@ -170,7 +170,7 @@ def main():
 
     # Invoke API and print output
     if restaurant_search_query:
-        api_url = "https://ie3e0zu9r5.execute-api.us-east-1.amazonaws.com/prod/sageMakerResource"
+        api_url = "API_URL"
         payload = {"query": restaurant_search_query}
         response = requests.get(api_url, params=payload)
         if response.status_code == 200:
